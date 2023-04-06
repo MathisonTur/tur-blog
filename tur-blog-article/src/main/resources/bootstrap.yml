@@ -1,0 +1,21 @@
+server:
+  port: 8801
+  servlet:
+    context-path: /article
+spring:
+  application:
+    name: article-service
+  cloud:
+    nacos:
+      discovery:
+        namespace: dev
+        server-addr: localhost:8848
+  #----------- mysql配置 --------------
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/turblog?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: chenmo
+  # 配置环境
+  profiles:
+    active: dev
