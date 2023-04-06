@@ -1,13 +1,13 @@
 server:
   servlet:
-    context-path: /article
-  port: 8801
+    context-path: /category
+  port: 8803
   tomcat:
     max-http-form-post-size: 3145728
 
 spring:
   application:
-    name: article-service
+    name: category-service
   cloud:
     nacos:
       discovery:

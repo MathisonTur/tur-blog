@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>tur-blog-article</artifactId>
-    <description>文章模块</description>
+    <artifactId>tur-blog-tag</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

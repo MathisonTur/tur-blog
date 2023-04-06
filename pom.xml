@@ -10,9 +10,11 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>tur-blog-base</module>
-        <module>tur-blog-common</module>
         <module>tur-blog-gateway</module>
+        <module>tur-blog-generator</module>
         <module>tur-blog-article</module>
+        <module>tur-blog-tag</module>
+        <module>tur-blog-category</module>
     </modules>
 
     <!-- 版本控制 -->
