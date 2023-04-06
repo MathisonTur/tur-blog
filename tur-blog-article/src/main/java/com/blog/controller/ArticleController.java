@@ -34,4 +34,40 @@ public class ArticleController {
     ){
         return articleService.getArticlePage(pageNo, pageSize);
     }
+
+    @GetMapping("/condition")
+    @ApiOperation(value = "分类标签文章列表查询")
+    public ResponseResult condition(
+            @ApiParam(value = "分类id") @RequestParam(required = false) Long categoryId,
+            @ApiParam(value = "标签id") @RequestParam(required = false) Long tagId,
+            @ApiParam(value = "页码") @RequestParam Long pageNo,
+            @ApiParam(value = "每页数量") @RequestParam Long pageSize){
+        return articleService.condition(categoryId, tagId, pageNo, pageSize);
+    }
+
+    @GetMapping("/archive")
+    @ApiOperation(value = "文章归档")
+    public ResponseResult archive(
+            @ApiParam(value = "页码") @RequestParam Long pageNo,
+            @ApiParam(value = "每页数量") @RequestParam Long pageSize){
+        return articleService.getArticlePage(pageNo, pageSize);
+    }
+
+    @GetMapping("/info")
+    @ApiOperation(value = "文章详情")
+    public ResponseResult articleInfo(@ApiParam(value = "文章id") @RequestParam Long id){
+        return articleService.articleInfo(id);
+    }
+
+    @GetMapping("/articleLike")
+    @ApiOperation(value = "文章点赞")
+    public ResponseResult articleLike(@ApiParam(value = "文章id")  @RequestParam Long articleId){
+        return articleService.articleLike(articleId);
+    }
+
+    @GetMapping("/checkSecret")
+    @ApiOperation(value = "文章验证秘钥")
+    public ResponseResult checkSecret(@ApiParam("验证码") String code){
+        return articleService.checkSecret(code);
+    }
 }

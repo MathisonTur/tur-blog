@@ -38,4 +38,14 @@ public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements TagSe
         articleTagService.selectByArticleId(articleId).forEach(articleTag -> tagList.add(baseMapper.selectById(articleTag.getTagId())));
         return BeanCopyUntils.copyBeanList(tagList, TagBO.class);
     }
+
+    /**
+     * @param id 标签id
+     * @return com.blog.pojo.bo.TagBO
+     * @description 根据id获取标签
+     */
+    @Override
+    public TagBO getTagById(Long id) {
+        return BeanCopyUntils.copyBean(baseMapper.selectById(id), TagBO.class);
+    }
 }

@@ -21,6 +21,14 @@ public interface TagClient {
      * @param articleId 文章id
      * @return java.util.List<com.blog.pojo.bo.TagBO>
     */
-    @GetMapping("/{articleId}")
+    @GetMapping("/list/{articleId}")
     List<TagBO> getTagByArticleId(@PathVariable("articleId") Long articleId);
+
+    /**
+     * @description 根据id获取标签信息
+     * @param id 标签id
+     * @return com.blog.pojo.bo.TagBO
+    */
+    @GetMapping("/{id}")
+    TagBO getTagById(@PathVariable("id") Long id);
 }

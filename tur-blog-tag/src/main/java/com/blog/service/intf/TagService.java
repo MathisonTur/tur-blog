@@ -20,4 +20,11 @@ public interface TagService extends IService<Tag> {
      * @return java.util.List<com.blog.pojo.bo.TagBO>
     */
     List<TagBO> getTagByArticleId(Long articleId);
+
+    /**
+     * @description 根据id获取标签
+     * @param id 标签id
+     * @return com.blog.pojo.bo.TagBO
+    */
+    TagBO getTagById(Long id);
 }

@@ -3,6 +3,7 @@ package com.blog.controller;
 import com.blog.pojo.bo.TagBO;
 import com.blog.service.intf.TagService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,8 +27,14 @@ public class TagController {
     private TagService  tagService;
 
     //============== 供给其他服务的接口 ===============
-    @GetMapping("/{articleId}")
+    @GetMapping("/list/{articleId}")
     public List<TagBO> getTagByArticleId(@PathVariable("articleId") Long articleId){
         return tagService.getTagByArticleId(articleId);
+    }
+
+    @GetMapping("/{id}")
+    @ApiOperation("根据id获取标签")
+    TagBO getTagById(@PathVariable("id") Long id){
+        return tagService.getTagById(id);
     }
 }
