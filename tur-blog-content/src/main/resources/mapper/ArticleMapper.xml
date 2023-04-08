@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blog.mapper.ArticleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.blog.pojo.entity.Article">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="category_id" property="categoryId" />
+        <result column="title" property="title" />
+        <result column="avatar" property="avatar" />
+        <result column="summary" property="summary" />
+        <result column="content" property="content" />
+        <result column="content_md" property="contentMd" />
+        <result column="is_secret" property="isSecret" />
+        <result column="is_stick" property="isStick" />
+        <result column="is_publish" property="isPublish" />
+        <result column="is_original" property="isOriginal" />
+        <result column="original_url" property="originalUrl" />
+        <result column="quantity" property="quantity" />
+        <result column="remark" property="remark" />
+        <result column="create_time" property="createTime" />
+        <result column="keywords" property="keywords" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 文章分页列表查询 -->
+    <select id="selectArticleList" resultType="com.blog.pojo.entity.Article">
+        select *
+        from t_article
+        where is_publish = #{publish}
+        <if test="idList != null">
+            and id in
+            <foreach collection="idList" item="item" index="index" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="categoryId != null">
+            and category_id = #{categoryId}
+        </if>
+        order by is_stick desc, create_time desc
+    </select>
+
+    <!-- 根据文章id，筛选出最新的五篇文章 -->
+    <select id="getNewestArticleList" resultType="com.blog.pojo.entity.Article">
+        select * from t_article where is_publish = #{publish} and id != #{id} order by create_time desc limit 5;
+    </select>
+
+    <!-- 根据文章id，获取该文章的上一篇或下一篇 -->
+    <select id="getLastOrNextArticle" resultType="com.blog.pojo.entity.Article">
+        select * from t_article where is_publish = #{publish}
+        <choose>
+            <when test="type == 0">
+                and id &lt; #{id} order by id desc
+            </when>
+            <otherwise>
+                and id &gt; #{id} order by id asc
+            </otherwise>
+        </choose>
+        limit 1
+    </select>
+
+    <!-- 获取文章推荐 -->
+    <select id="getRecommendArticleList" resultType="com.blog.pojo.entity.Article">
+        select *
+        from t_article
+        where id != #{articleId}
+          and category_id in (select category_id from t_article where id = #{articleId})
+        order by is_stick desc, id desc
+        limit 6
+    </select>
+
+    <!-- 根据分类id获取文章数量 -->
+    <select id="selectByCategoryId" resultType="java.lang.Long">
+        select count(id) from t_article where category_id = #{categoryId} and is_publish = #{publish}
+    </select>
+
+    <!-- 根据publish(0未发布/1已发布)查询对应的文章数量 -->
+    <select id="selectCount" resultType="java.lang.Long">
+        select count(id) from t_article where is_publish = #{publish}
+    </select>
+
+</mapper>

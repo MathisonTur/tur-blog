@@ -1,0 +1,50 @@
+server:
+  port: 8802
+  tomcat:
+    max-http-form-post-size: 3145728
+
+spring:
+  application:
+    name: sms-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: dev
+  servlet:
+    multipart:
+      max-request-size: 50MB
+      max-file-size: 50MB
+
+  #======== mysql配置 ======
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/turblog_dev?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: chenmo
+
+  #======== redis配置 ======
+  redis:
+    port: 6379
+    host: 172.25.248.60
+    password: 123456
+    database: 2
+    lettuce:
+      pool:
+        max-wait: 200  # 等待时间
+        max-active: 8  # 最大连接数
+        max-idle: 8    # 最大空闲连接
+        min-idle: 0    # 最小空闲链接
+
+
+  # 配置环境
+  profiles:
+    active: dev
+
+#============== 线程池配置 ==================
+task:
+  executor:
+    core_pool_size: 10
+    max_pool_size: 200
+    queue_capacity: 1200
+    keep_alive_seconds: 60

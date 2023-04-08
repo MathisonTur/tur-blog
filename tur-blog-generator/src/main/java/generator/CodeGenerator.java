@@ -27,7 +27,8 @@ public class CodeGenerator {
     private static final String DATA_SOURCE_PASSWORD = "chenmo";
     // 需要映射的表
     private static final String[] TABLE_NAMES = new String[]{
-            "t_category"
+            "t_photo",
+            "t_photo_album"
     };
 
     private static final Boolean IS_DTO = false;

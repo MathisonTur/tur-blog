@@ -12,9 +12,13 @@
         <module>tur-blog-base</module>
         <module>tur-blog-gateway</module>
         <module>tur-blog-generator</module>
-        <module>tur-blog-article</module>
-        <module>tur-blog-tag</module>
-        <module>tur-blog-category</module>
+        <module>tur-blog-content</module>
+        <module>tur-blog-sms</module>
+        <module>tur-blog-system</module>
+        <module>tur-blog-website</module>
+        <module>tur-blog-picture</module>
+        <module>tur-blog-log</module>
+        <module>tur-blog-common</module>
     </modules>
 
     <!-- 版本控制 -->
@@ -25,9 +29,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.sourceEncoding>UTF-8</project.reporting.sourceEncoding>
         <alibaba-fastjson.version>2.0.25</alibaba-fastjson.version>
+        <apache-commons-lang3.version>3.12.0</apache-commons-lang3.version>
         <druid-spring-boot.version>1.2.16</druid-spring-boot.version>
+        <hutool.version>5.8.16</hutool.version>
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
-        <knife4j.version>4.0.0</knife4j.version>
+        <knife4j.version>4.1.0</knife4j.version>
         <lombok.version>1.18.24</lombok.version>
         <mybatis-plus.version>3.5.2</mybatis-plus.version>
         <mybatis-plus-generator.version>3.4.1</mybatis-plus-generator.version>
@@ -35,17 +41,38 @@
         <spring-boot.version>2.6.13</spring-boot.version>
         <spring-cloud.version>2021.0.5</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
+        <springfox-swagger.version>2.9.2</springfox-swagger.version>
         <UserAgentUtils.version>1.21</UserAgentUtils.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
 
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache-commons-lang3.version}</version>
+            </dependency>
+
             <!-- 数据库连接池 -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid-spring-boot.version}</version>
+            </dependency>
+
+            <!-- fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${alibaba-fastjson.version}</version>
+            </dependency>
+
+            <!-- hutool 工具包 -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-core</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
 
             <!-- Servlet 容器管理 -->
@@ -60,6 +87,13 @@
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
+            </dependency>
+
+            <!-- knife4j gateway 网关聚合 -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-gateway-spring-boot-starter</artifactId>
+                <version>4.1.0</version>
             </dependency>
 
             <!-- lombok -->
@@ -129,6 +163,13 @@
                 <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!--ip管理jar -->
+            <dependency>
+                <groupId>eu.bitwalker</groupId>
+                <artifactId>UserAgentUtils</artifactId>
+                <version>${UserAgentUtils.version}</version>
             </dependency>
 
         </dependencies>
