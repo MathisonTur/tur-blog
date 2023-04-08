@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blog.mapper.WebConfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.blog.pojo.entity.WebConfig">
+        <id column="id" property="id" />
+        <result column="logo" property="logo" />
+        <result column="name" property="name" />
+        <result column="summary" property="summary" />
+        <result column="keyword" property="keyword" />
+        <result column="author" property="author" />
+        <result column="record_num" property="recordNum" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="web_url" property="webUrl" />
+        <result column="ali_pay" property="aliPay" />
+        <result column="weixin_pay" property="weixinPay" />
+        <result column="github" property="github" />
+        <result column="gitee" property="gitee" />
+        <result column="qq_number" property="qqNumber" />
+        <result column="email" property="email" />
+        <result column="show_list" property="showList" />
+        <result column="login_type_list" property="loginTypeList" />
+        <result column="open_comment" property="openComment" />
+        <result column="open_admiration" property="openAdmiration" />
+        <result column="tourist_avatar" property="touristAvatar" />
+        <result column="bulletin" property="bulletin" />
+        <result column="author_info" property="authorInfo" />
+        <result column="author_avatar" property="authorAvatar" />
+        <result column="about_me" property="aboutMe" />
+        <result column="is_music_player" property="isMusicPlayer" />
+    </resultMap>
+
+    <!-- 获取网站信息 -->
+    <select id="getOne" resultType="com.blog.pojo.entity.WebConfig">
+        select author_avatar, is_music_player, author_info, tourist_avatar, bulletin, qq_number, gitee, github, logo, about_me, email, show_list, login_type_list, record_num, author, ali_pay, weixin_pay, web_url, summary, name, keyword from t_web_config limit 1;
+    </select>
+
+</mapper>
