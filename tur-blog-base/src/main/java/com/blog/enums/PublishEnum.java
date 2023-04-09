@@ -16,7 +16,7 @@ public enum PublishEnum {
      * 文章发布
      * */
     PUBLISH(1);
-    private int code;
+    private final int code;
 
     PublishEnum(int code){
         this.code = code;

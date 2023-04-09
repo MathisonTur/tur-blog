@@ -29,7 +29,7 @@ public class OnlineSocketServiceImpl {
     /**
      * 线程安全的socket集合
      */
-    private static CopyOnWriteArraySet<OnlineSocketServiceImpl> webSocketSet = new CopyOnWriteArraySet<>();
+    private static final CopyOnWriteArraySet<OnlineSocketServiceImpl> webSocketSet = new CopyOnWriteArraySet<>();
     /**
      * 会话
      */

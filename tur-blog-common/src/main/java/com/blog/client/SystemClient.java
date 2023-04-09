@@ -1,7 +1,7 @@
 package com.blog.client;
 
 import com.blog.pojo.bo.UserAuthBO;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Api;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @description 系统管理客户端
  */
 @FeignClient("system-service")
-@ApiOperation("用户信息客户端")
+@Api("用户信息客户端")
 public interface SystemClient {
 
     /**

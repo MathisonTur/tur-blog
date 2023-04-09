@@ -124,6 +124,13 @@
                 <version>${sa-token-spring.version}</version>
             </dependency>
 
+            <!-- Sa-Token 权限认证（Reactor响应式集成），在线文档：https://sa-token.cc -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-reactor-spring-boot-starter</artifactId>
+                <version>${sa-token-spring.version}</version>
+            </dependency>
+
             <!-- Sa-Token插件：整合SSO -->
             <dependency>
                 <groupId>cn.dev33</groupId>

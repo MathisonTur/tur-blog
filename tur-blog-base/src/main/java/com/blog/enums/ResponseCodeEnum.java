@@ -41,9 +41,9 @@ public enum ResponseCodeEnum {
     ARTICLE_NOT_EXIST(10023, "数据库不存在该文章");
 
 
-    private Integer code;
+    private final Integer code;
 
-    private String msg;
+    private final String msg;
 
     ResponseCodeEnum(Integer code, String msg) {
         this.code = code;

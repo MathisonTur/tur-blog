@@ -128,7 +128,6 @@ public class RedisServiceImpl implements RedisService {
     /**
      * @param key     键
      * @param dataMap 值
-     * @return void
      * @author tur
      * @date 2023/3/31 22:40
      * @description 缓存Map
@@ -159,7 +158,6 @@ public class RedisServiceImpl implements RedisService {
      * @param key redis键
      * @param hKey hash键
      * @param value 值
-     * @return void
     */
     public <T> void setCacheMapValue(String key, String hKey, T value){
         redisTemplate.opsForHash().put(key, hKey, value);

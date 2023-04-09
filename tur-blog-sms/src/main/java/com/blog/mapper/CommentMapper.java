@@ -15,7 +15,7 @@ public interface CommentMapper extends BaseMapper<Comment> {
 
     /**
      * @description 根据文章id获取评论集合
-     * @param articleId
+     * @param articleId 文章id
      * @return java.util.List<com.blog.pojo.entity.CommentBO>
     */
     List<Comment> selectByArticleId(Long articleId);

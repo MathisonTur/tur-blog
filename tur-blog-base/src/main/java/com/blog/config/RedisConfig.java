@@ -24,7 +24,7 @@ public class RedisConfig {
      * @author tur
      * @date 2023/3/31 19:31
      * @description 自定义Redis序列化方式
-     * @param factory
+     * @param factory redis连接池
      * @return org.springframework.data.redis.core.RedisTemplate<java.lang.String,java.lang.Object>
     */
     @Bean

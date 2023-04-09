@@ -89,7 +89,6 @@ public interface RedisService {
      * @description 缓存Map
      * @param key 键
      * @param dataMap 值
-     * @return void
     */
     void setCacheMap(String key, Map<String, Object> dataMap);
 

@@ -25,15 +25,15 @@ public class WebsiteInfoVO {
     /**
      * 网站信息
      * */
-    WebConfigBO webSite;
+    private WebConfigBO webSite;
 
     /**
      * 页面信息
      * */
-    List<PageBO> pageList;
+    private List<PageBO> pageList;
 
     /**
      * 内容点击量
      * */
-    ContentCountDTO count;
+    private ContentCountDTO count;
 }

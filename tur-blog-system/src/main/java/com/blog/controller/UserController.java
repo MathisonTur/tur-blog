@@ -1,11 +1,13 @@
 package com.blog.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import com.blog.service.intf.UserService;
+import com.blog.util.ResponseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import javax.annotation.Resource;
 
 /**
@@ -21,4 +23,16 @@ public class UserController {
 
     @Resource
     private UserService  userService;
+
+    @PostMapping("/admin/user/getCurrentUserInfo")
+    @ApiOperation("获取当前登录用户信息")
+    public ResponseResult getCurrentUserInfo(){
+        return userService.getCurrentUserInfo();
+    }
+
+    @PostMapping("/admin/user/getUserMenu")
+    @ApiOperation("获取用户菜单信息")
+    public ResponseResult getUserMenu(){
+        return userService.getUserMenu();
+    }
 }

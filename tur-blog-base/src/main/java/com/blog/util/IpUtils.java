@@ -124,7 +124,7 @@ public class IpUtils {
             // 设置通用的请求属性
             connection.setRequestProperty("accept", "*/**");
             connection.setRequestProperty("connection", "Keep-ALive");
-            connection.setRequestProperty("user-agent", "http://localhost:8800/web/home/report");
+            connection.setRequestProperty("user-agent", "http://localhost:8800/website-service/web/home/report");
             // 创建实际链接
             connection.connect();
             // 定义BufferedReader输入流来读取URL的响应
